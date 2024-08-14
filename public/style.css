@@ -1,0 +1,274 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #aca8a8;
+}
+
+/* Navigation Styles */
+nav {
+    background-color: #444;
+    color: #fff;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav .site-title a {
+    color: white;
+    text-decoration: none;
+}
+
+nav .site-title h1 {
+    margin-left: 30%;
+    font-size: 35px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    margin-right: 4%;
+}
+
+nav ul li {
+    margin: 0 5px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 22px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+nav ul li a:hover {
+    background-color: #555;
+}
+
+/* Content Styles */
+.blog {
+    border: 1px solid #ddd;
+    background: white;
+    margin: 20px auto;
+    padding: 20px;
+    width: 80%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.blog h2 {
+    margin-top: 0;
+    font-size: 28px;
+    color: #333;
+}
+
+.blog p {
+    line-height: 1.6;
+    color: #666;
+}
+
+/* Content Styles */
+section {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    background: white;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+section h2 {
+    font-size: 28px;
+    color: #333;
+    margin-top: 0;
+}
+
+.blog-post {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-left: 3px solid #444;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    transition: box-shadow 0.3s ease;
+}
+
+.blog-post:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
+}
+
+.blog-link {
+    text-decoration: none;
+}
+
+article h3 {
+    font-size: 1.5em;
+    color: #444;
+    margin: 1px 0 5px 0;
+    /* border: 2px solid red; */
+}
+
+.blog-author {
+  font-size: 0.9em;
+  color: #555;
+  /* border: 2px solid red; */
+}
+
+.blog-summary {
+    /* border: 2px solid red; */
+  font-size: 1em;
+  color: #333;
+}
+
+
+/* Create Blog Styles */
+.create-blog {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background: white;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+}
+
+.create-blog form {
+    display: flex;
+    flex-direction: column;
+}
+
+.create-blog label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.create-blog input,
+.create-blog textarea {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.create-blog button {
+    padding: 10px 15px;
+    background: #444;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s;
+}
+
+.create-blog button:hover {
+    background: #555;
+}
+
+
+/* Error Page Styles */
+.error-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 30px;
+}
+
+.not-found {
+    font-size: 24px;
+    color: #333;
+    padding: 20px;
+    background: white;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Single Blog Page Styles */
+
+
+
+
+
+/* Success Message Styles */
+.success-message {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #dff0d8;
+    border: 1px solid #d6e9c6;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.success-message h1 {
+    color: #3c763d;
+    margin-bottom: 20px;
+}
+
+.success-message p {
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+.success-message a {
+    display: inline-block;
+    padding: 10px 15px;
+    background: #5cb85c;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.success-message a:hover {
+    background: #4cae4c;
+}
+
+
+/* Failure Message Styles */
+.fail-message {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #f2dede;
+    border: 1px solid #ebccd1;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.fail-message h1 {
+    color: #a94442;
+    margin-bottom: 20px;
+}
+
+.fail-message p {
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+.fail-message a {
+    display: inline-block;
+    padding: 10px 15px;
+    background: #d9534f;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.fail-message a:hover {
+    background: #c9302c;
+}
+
+
+footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("partials/head") %>
+
+    <body>
+        <%- include("partials/nav") %>
+            <div class="single-blog">
+                <h3 class="blog-title">
+                    <%= blog.title %>
+                </h3>
+                <p class="blog-author">
+                    <%= blog.author %>
+                </p>
+                <p class="blog-summary">
+                    <%= blog.summary %>
+                </p>
+                <a href="/delete/id/<%= blog.id %>"><button id="delete">Delete Blog</button></a>
+                
+                <a href="/blogs"><span id="span-btn">Back to Blog List</span></a>
+            </div>
+
+            <%- include("partials/footer") %>
+    </body>
+
+</html>
