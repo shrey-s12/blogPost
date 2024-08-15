@@ -1,25 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-<%- include("partials/head") %>
+<%- include('partials/head') %>
 
     <body>
-        <%- include("partials/nav") %>
+        <%- include("./partials/nav") %>
             <div class="single-blog">
-                <h3 class="blog-title">
+                <h1 class="blog-title">
                     <%= blog.title %>
-                </h3>
-                <p class="blog-author">
-                    <%= blog.author %>
+                        <div class="blog-icons">
+                            <a class="back-link" href="/blogs" title="Go back to the blog list">
+                                <i>Go Back</i>
+                            </a>
+                            <a href="/blogs/successDelete"><button id="delete-button" data-docid="<%= blog.id %>"
+                                    title="Delete Blog">
+                                    <i>Delete</i>
+                                </button>
+                            </a>
+                        </div>
+                </h1>
+                <p class="blog-author">By <%= blog.author %> on <%= blog.updatedAt %>
                 </p>
-                <p class="blog-summary">
+                <p class="blog-summary"><b>Summary: </b>
                     <%= blog.summary %>
                 </p>
-                <a href="/delete/id/<%= blog.id %>"><button id="delete">Delete Blog</button></a>
-                
-                <a href="/blogs"><span id="span-btn">Back to Blog List</span></a>
+                <div class="blog-content">
+                    <p><%- blog.content %></p>
+                </div>
             </div>
 
-            <%- include("partials/footer") %>
+            <%- include("./partials/footer") %>
+
+                <script>
+                    const deleteButton = document.getElementById("delete-button");
+                    deleteButton.addEventListener("click", async () => {
+                        const deleteEndpoint = `/blogs/id/${deleteButton.dataset.docid}`;
+                        console.log(`deleteEndpoint: ${deleteEndpoint}`);
+                        const response = await fetch(deleteEndpoint, {
+                            method: "DELETE",
+                        });
+                        if (response.ok) {
+                            responseContent = await response.json();
+                            console.log(response);
+                            window.location.href = responseContent.redirect;
+                        } else {
+                            alert("Failed to delete blog");
+                        }
+                    });
+                </script>
     </body>
 
 </html>
