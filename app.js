@@ -3,8 +3,11 @@ const app = express();
 const ejs = require('ejs');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
+const cookieParser = require('cookie-parser');
+const jwt = require('jsonwebtoken');
 
 const blogpostRouter = require('./routes/blogRouters');
+const authRoutes = require('./routes/authRouters');
 const PORT = 3000;
 
 // register view engine
@@ -29,11 +32,41 @@ promObj
             console.log(`Server is listen on port ${PORT}`);
         });
     }).catch((error) => {
-        console.error('Failed to connect to database', err);
+        console.error('Failed to connect to database', error);
         process.exit(1); // Exit the process with a failure code
     });
 
-// more routers
+
+app.use((req, res, next) => {
+    res.locals.path = req.path;
+    next();
+});
+
+// TODO: middleware -> checkUser
+app.use(cookieParser());
+
+function checkUser(req, res, next) {
+    const token = req.cookies.authtoken;
+    if (token) {
+        jwt.verify(token, "veryComplexSecret", (error, decodedToken) => {
+            if (error) {
+                res.locals.user = null;
+            }
+            else {
+                res.locals.user = decodedToken;
+            }
+        });
+    }
+    else {
+        res.locals.user = null;
+    }
+    next();
+}
+
+app.use(checkUser);
+
+
+// routers
 app.get('/', (req, res) => {
     res.render('index', { title: "Home" });
 });
@@ -41,12 +74,12 @@ app.get('/about', (req, res) => {
     res.render('about', { title: "About" });
 });
 
+// auth routers
+app.use('/auth', authRoutes);
+
 // blog routes
 app.use('/blogs', blogpostRouter);
 
-app.get('/newBlog', (req, res) => {
-    res.render('newBlog', { title: "NewBlogs" });
-});
 
 // 404 page
 app.use((req, res) => {

@@ -49,7 +49,7 @@ function blog_id_delete(req, res) {
             res.redirect('/blogs/successDelete');
         })
         .catch((error) => {
-            res.redirect('/failDelete');
+            res.redirect('/blogs/failDelete');
         })
 };
 
