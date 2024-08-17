@@ -7,6 +7,7 @@ const cookieParser = require('cookie-parser')
 const router = express.Router();
 
 router.get('/login', (req, res) => {
+    res.cookie('authtoken', '', { maxAge: 1 });
     res.render('auth/login', { title: "Login" });
 });
 
